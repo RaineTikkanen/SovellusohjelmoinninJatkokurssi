@@ -1,12 +1,15 @@
 import { Text, View, Image, StyleSheet } from 'react-native';
 
-const WeatherInfo = ({ weather, temp, wind, windDir }) => {
+const WeatherInfo = ({ weather }) => {
+  if (!weather || !weather.main) {
+    return null;
+  }
   return (
     <View style={styles.container}>
-      <WeatherIcon weather={weather} />
-      <Text style={styles.cityName}>{weather}</Text>
-      <Text style={styles.info}>Temperature: {temp}°C</Text>
-      <Text style={styles.info}>Wind: {windDir} {wind} m/s</Text>
+      <WeatherIcon weather={weather.weather[0].main} />
+      <Text style={styles.cityName}>{weather.weather[0].main}</Text>
+      <Text style={styles.info}>Temperature: {(weather.main.temp - 274.15).toPrecision(2)} °C</Text>
+      <Text style={styles.info}> Wind: {weather.wind.speed} m/s</Text>
     </View>
   );
 }
