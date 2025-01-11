@@ -15,6 +15,11 @@ Window {
         anchors.fill: parent
         opacity: 0.5
         color: backgroundColor
+        Behavior on color {
+            ColorAnimation{
+                duration: 300
+            }
+        }
     }
     Column{
         anchors.centerIn: parent

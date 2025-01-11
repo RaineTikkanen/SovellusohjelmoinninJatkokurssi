@@ -16,12 +16,22 @@ Item{
             anchors.centerIn: parent
             text: buttonText
         }
+        Behavior on scale {
+            NumberAnimation{
+                duration: 100
+            }
+        }
+        Behavior on opacity {
+            OpacityAnimator{
+                duration : 200
+            }
+        }
     }
     MouseArea{
         anchors.fill: parent
         onPressed:{
-            buttonArea.scale=0.95
-            buttonArea.opacity=0.9
+            buttonArea.scale=0.92
+            buttonArea.opacity=0.8
         }
         onReleased: {
             buttonArea.scale=1
