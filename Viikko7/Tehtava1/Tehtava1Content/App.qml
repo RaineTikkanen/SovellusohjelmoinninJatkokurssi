@@ -7,8 +7,8 @@ import Tehtava1
 
 Window {
     id: window
-    width: 800
-    height: 800
+    width: 500
+    height: 500
 
     visible: true
     title: "Tehtava1"
@@ -24,7 +24,6 @@ Window {
                              "#9085de", "#9485db", "#9886d8", "#9c87d4", "#a087d1", "#a488cd", "#a888ca", "#ab89c6", "#af89c3", "#b38abf",
                              "#b78abc", "#bb8ab8", "#bf8ab4", "#c38ab1", "#c68bad", "#ca8ba9", "#ce8ba5", "#d28ba1", "#d68a9d", "#d98a99",
                              "#dd8a95", "#e18a91", "#e58a8d", "#e88988", "#ec8984", "#f0887f", "#f4887a", "#f88775", "#fb8770", "#ff866b"]
-    property var colors: reds
     property var textColors: ["#152a4a", "#45154a", "#16522d", "#1d4207", "#4f030b"]
     property int textColorIndex: 0
 
@@ -33,15 +32,15 @@ Window {
         anchors.centerIn: parent
         anchors.fill: parent
         gradient: Gradient{
-            GradientStop{position: 0.0; color: topColors[window.temp+20]}
-            GradientStop{position: 1.0; color: topColors[window.temp+20]}
+            GradientStop{position: 0.0; color: topColors[window.temp+19]}
+            GradientStop{position: 1.0; color: bottomColors[window.temp+19]}
         }
         Rectangle{
             id: textBackground
             anchors.horizontalCenter: background.horizontalCenter
             y: 20
             width: 400
-            height: parent.height/10
+            height: 100
             radius: 10
             color: "grey"
             opacity: 0.6
@@ -86,7 +85,7 @@ Window {
                     scale: parent.down ? 0.95 : 1
                 }
                 onClicked: {
-                    if(temp > -20){window.temp -=1}
+                    if(temp > -19){window.temp -=1}
                 }
             }
             Item{
