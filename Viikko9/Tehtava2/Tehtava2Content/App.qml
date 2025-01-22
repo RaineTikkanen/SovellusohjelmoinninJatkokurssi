@@ -100,6 +100,12 @@ Window {
                 height: 50
                 radius: 50
                 color: "red"
+                Behavior on color{
+                    ColorAnimation {
+                        duration: 200
+                    }
+                }
+
             }
             Image{
                 anchors.centerIn: parent
@@ -110,14 +116,18 @@ Window {
             }
             MouseArea{
                 anchors.fill: parent
-                onClicked: {
+                onPressed: powerButton.scale = 0.9
+                onReleased: {
+                    powerButton.scale =1
                     container.state==="off" ? container.state = "on": container.state = "off"
                 }
             }
-
+            Behavior on scale{
+                NumberAnimation{
+                    duration: 100
+                }
+            }
         }
-
-
     }
 }
 

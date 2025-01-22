@@ -36,6 +36,6 @@ Rectangle {
     ]
     MouseArea{
         anchors.fill: parent
-        onClicked: rect.state === "state1" ? rect.state="state2" : rect.state="state1"
+        onClicked: rect.rectState === "state1" ? rect.rectState="state2" : rect.rectState="state1"
     }
 }
